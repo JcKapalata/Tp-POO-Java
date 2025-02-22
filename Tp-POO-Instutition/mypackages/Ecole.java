@@ -7,8 +7,11 @@ public class Ecole extends Institution{
     private String nomPromoteur;
 
     // Creation du construteur
-    public Ecole(){
-
+    public Ecole(String nom, String pays, String type, int anneeCreation, String typeEcole, int nbrClasse, String nomPromoteur){
+        super(nom, pays, type, anneeCreation);
+        this.typeEcole = typeEcole;
+        this.nbrClasse = nbrClasse;
+        this.nomPromoteur = nomPromoteur;
     }
 
     // Creation accesseur et mutateur du type d'ecole
@@ -16,7 +19,7 @@ public class Ecole extends Institution{
         return typeEcole;
     }
     public void setTypeEcole (String type_ecole){
-        typeEcole = type_ecole;
+        this.typeEcole = type_ecole;
     }
 
     // Creation acceusseur et mutateur du nombre de classe
@@ -24,7 +27,7 @@ public class Ecole extends Institution{
         return nbrClasse;
     }
     public void setNbrClasse (int nbr_classe){
-        nbrClasse = nbr_classe;
+        this.nbrClasse = nbr_classe;
     }
 
     // Creation accesseur et mutateur pour le Nom du recteur
@@ -32,18 +35,19 @@ public class Ecole extends Institution{
         return nomPromoteur;
     }
     public void setNomPromoteur (String nom_promoteur){
-        nomPromoteur = nom_promoteur;
+        this.nomPromoteur = nom_promoteur;
     }
 
     // Creation du methode description pour l' Ecole
-    public void descriptionEcole(){
-        System.out.println("\t DESCRIPTION ECOLE");
-        System.out.println("Type de l' ecole : "+ getTypeEcole());
-        System.out.println("Nombre de classe : "+ getNbrClasse());
+    @Override
+    public void description(){
+        super.description();
+        System.out.println("Type de l' ecole : "+ this.typeEcole);
+        System.out.println("Nombre de classe : "+ this.nbrClasse);
     }
 
     // Creation du methode qui affiche le nom promoteur
     public void affichePromteur(){
-        System.out.println("Le nom du promoteur : "+ getNomPromoteur());
+        System.out.println("Le nom du promoteur "+ this.nom +" : "+ this.nomPromoteur);
     }
 }

@@ -6,8 +6,11 @@ public class Universite extends Institution{
     private String systemeEnseigement;
     private String nomRecteur;
 
-    public Universite(){
-
+    public Universite(String nom, String pays, String type, int anneeCreation, int nbrFaculte, String systemeEnseigement, String nomRecteur){
+        super(nom, pays, type, anneeCreation);
+        this.nbrFaculte = nbrFaculte;
+        this.systemeEnseigement = systemeEnseigement;
+        this.nomRecteur = nomRecteur;
     }
 
     // Creation accesseur et mutateur Nbre de faculte
@@ -33,14 +36,15 @@ public class Universite extends Institution{
     }
 
     // Creation du methode Description
-    public void descriptionUniversite(){
-        System.out.println("\t DESCRIPTION DE L'UNIVERSITE");
-        System.out.println("Nombre de faculte : "+ getNbrFaculte());
-        System.out.println("Systeme d' enseignement : "+ getSystemeEnseignement());
+    @Override
+    public void description(){
+        super.description();
+        System.out.println("Nombre de faculte : "+ this.nbrFaculte);
+        System.out.println("Systeme d' enseignement : "+ this.systemeEnseigement);
     }
 
     // Creation d'une methode qui affiche nom du Recteur
     public void afficheNomRecteur(){
-        System.out.println("Le nom du recteur : "+ getNomRecteur());
+        System.out.println("Le nom du recteur de l'universite " + this.nom + " : "+ this.nomRecteur);
     }
 }
